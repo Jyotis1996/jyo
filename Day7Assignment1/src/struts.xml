@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE struts PUBLIC
-   "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
-   "http://struts.apache.org/dtds/struts-2.0.dtd">
-<struts>
-	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
-	<constant name="struts.devMode" value="false" />
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
 
-	<package name="default" extends="struts-default">
-		<action name="login" class="com.assignment1.struts.login.action.UserLoginAction">
-			<result name="SUCCESS">/success.jsp</result>
-			<result name="ERROR">/error.jsp</result>
+<struts>
+	<constant name="struts.devMode" value="false" />
+	<include file="struts-default.xml" />
+	<package name="HibernateWithXML" extends="struts-default,json-default">
+		<action name="LoginAction" class="com.uks.assignment1.action.UserLoginAction">
+			<result name="success">success.jsp</result>
+			<result name="error">login.jsp</result>
 		</action>
 	</package>
-</struts>
+</struts>	

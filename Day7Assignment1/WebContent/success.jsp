@@ -5,61 +5,81 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>UserDetails</title>
 </head>
-<style>
-.content {
-  max-width: 500px;
-  margin: auto;
 
+<style>
+/* for custom scrollbar for webkit browser*/
+::-webkit-scrollbar {
+	width: 6px;
+}
+
+::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 </style>
-<body>
-	<div class="content">
-		<s:form action="loginSuccess" method="post" >
-		<!-- <h1 style="color: #fff">Successfully Login</h1> -->
-		<h2>
-			Hello
-			<s:property value="objbean.username" />
-		</h2>
+<script>
+	function myFunction() {
+		window.location = 'login.jsp';
+	}
+</script>
+<body bgcolor="wheat">
+	<s:form method="post" action="LoginAction">
+		<center>
+			<h1 style="font-size: 25px; margin-left: 100px">User Details</h1>
+			<div class="tbl-header">
+				<table cellpadding="2" cellspacing="0" border="2" align="center">
+					<thead>
+						<tr>
+							<td>First Name</td>
+							<td>Middle Name</td>
+							<td>Last Name</td>
+							<td>Gender</td>
+							<td>Email Id</td>
+							<td>DateOfBirth</td>
+							<td>Address</td>
+						</tr>
+						<tr>
+							<td><s:property value="objuser.FirstName" /></td>
+							<td><s:property value="objuser.MiddleName" /></td>
+							<td><s:property value="objuser.LastName" /></td>
+							<td><s:property value="objuser.Sex" /></td>
+							<td><s:property value="objuser.EmailId" /></td>
+							<td><s:property value="objuser.BirthDate" /></td>
+							<td><s:property value="objuser.Address" /></td>
+						</tr>
+						<s:iterator value="list">
+							<tr>
+								<td><s:property value="FirstName" /></td>
+								<td><s:property value="MiddleName" /></td>
+								<td><s:property value="LastName" /></td>
+								<td><s:property value="Sex" /></td>
+								<td><s:property value="EmailId" /></td>
+								<td><s:property value="BirthDate" /></td>
+								<td><s:property value="Address" /></td>
+							</tr>
+						</s:iterator>
+					</thead>
+				</table>
+			</div>
+			<div class="content">
+				<s:form action="loginSuccess" method="post">
+					<s:if test="objbean.category == 'admin'">
+					</s:if>
+				</s:form>
+				<center>
+					<h3>
 
-		<table>
-			<s:iterator value="userList">
-			<tr><td>First Name:<s:property value="FirstName"/></td></tr>
-			<tr><td>Middle Name:<s:property value="MiddleName"/></td></tr>
-			<tr><td>Last Name:<s:property value="LastName"/></td></tr>
-			<tr><td>Gender:<s:property value="Gender"/></td></tr>
-			<tr><td>Email:<s:property value="EmailId"/></td></tr>
-			<tr><td>Address:<s:property value="Address"/></td></tr>
-			</s:iterator>
-		</table>
-
-		<br/>
-		<s:if test="objbean.category == 'admin'">
-		<h2>All User Details</h2>
-		<table>
-			<tr>
-				<td><h4>First Name</h4></td>
-				<td><h4>Middle Name</h4></td>
-				<td><h4>Last name</h4></td>
-				<td><h4>Gender</h4></td>
-				<td><h4>Email</h4></td>
-				<td><h4>Address</h4></td>
-			</tr>
-
-			<s:iterator value="list">
-			<tr>
-				<td><s:property value="FirstName" /></td>
-				<td><s:property value="MiddleName" /></td>
-				<td><s:property value="LastName" /></td>
-				<td><s:property value="Gender" /></td>
-				<td><s:property value="EmailId" /></td>
-				<td><s:property value="Address" /></td>
-			</tr>
-			</s:iterator>
-		</table>
-		</s:if>
-		</s:form>
-	</div>
+						<s:reset value="Logout" theme="simple" action="logOut"
+							onclick="location='login.jsp'"></s:reset>
+					</h3>
+				</center>
+			</div>
+		</center>
+	</s:form>
 </body>
 </html>
