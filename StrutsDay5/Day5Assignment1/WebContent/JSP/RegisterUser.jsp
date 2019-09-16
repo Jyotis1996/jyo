@@ -35,6 +35,13 @@
 		String categoryType = request.getAttribute("categoryType").toString();
 	%>
 	<s:form action="registerUser">
+		<div
+			style="padding-bottom: 50px; padding-top: 50px; padding-left: 580px; float:right">
+			<a href="http://localhost:8080/Day5Assignment1/userList.do"><bean:message
+					key="link.display.back" /></a> &nbsp;&nbsp;&nbsp;&nbsp; <a
+				href="javascript:logout()"><bean:message
+					key="link.display.logout" /></a>
+		</div>
 		<h1 style='font-family: MV Boli; margin-left: 500px;'>
 			<bean:message key="label.update.registeruser" />
 		</h1>
@@ -219,13 +226,6 @@
 					</s:reset></td>
 			</tr>
 		</table>
-		<div
-			style="padding-bottom: 50px; padding-top: 50px; padding-left: 580px; float: right">
-			<a href="http://localhost:8080/Day5Assignment1/userList.do"><bean:message
-					key="link.display.back" /></a> &nbsp;&nbsp;&nbsp;&nbsp; <a
-				href="javascript:logout()"><bean:message
-					key="link.display.logout" /></a>
-		</div>
 		<input type="hidden" name="catType" value="<%=categoryType%>">
 	</s:form>
 </body>
